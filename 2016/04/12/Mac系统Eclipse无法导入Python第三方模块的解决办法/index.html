@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  
+  <title>Mac系统Eclipse无法导入Python第三方模块的解决办法 | 尤大鱼的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用pip安装了python的第三方库，但eclipse中导入不成功，import xxx时提示“no module named xxx”
+版本
+
+eclipse 4.5.0
+python 2.7.11
+pip 8.1.1
+
+为什么呢
+先来看一下Eclipse中的Python Interpreter。打开Eclipse－偏好设置－PyDev－Interpreters－Python Interpre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac系统Eclipse无法导入Python第三方模块的解决办法">
+<meta property="og:url" content="http://yoursite.com/2016/04/12/Mac系统Eclipse无法导入Python第三方模块的解决办法/index.html">
+<meta property="og:site_name" content="尤大鱼的博客">
+<meta property="og:description" content="使用pip安装了python的第三方库，但eclipse中导入不成功，import xxx时提示“no module named xxx”
+版本
+
+eclipse 4.5.0
+python 2.7.11
+pip 8.1.1
+
+为什么呢
+先来看一下Eclipse中的Python Interpreter。打开Eclipse－偏好设置－PyDev－Interpreters－Python Interpre">
+<meta property="og:image" content="http://yoursite.com/20160412-0.png">
+<meta property="og:image" content="http://yoursite.com/20160412-1.png">
+<meta property="og:updated_time" content="2016-04-12T12:16:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac系统Eclipse无法导入Python第三方模块的解决办法">
+<meta name="twitter:description" content="使用pip安装了python的第三方库，但eclipse中导入不成功，import xxx时提示“no module named xxx”
+版本
+
+eclipse 4.5.0
+python 2.7.11
+pip 8.1.1
+
+为什么呢
+先来看一下Eclipse中的Python Interpreter。打开Eclipse－偏好设置－PyDev－Interpreters－Python Interpre">
+<meta name="twitter:image" content="http://yoursite.com/20160412-0.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <nav id="upper-nav" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <div class="sub-nav">
+        
+        
+          <a id="nav-github" class="nav-icon" href="https://github.com/yodyu"></a>
+        
+      </div>
+    </nav>
+    <div id="header-title">
+      
+        <h1 id="blog-title-wrap">
+          <a href="/" id="blog-title">尤大鱼</a>
+        </h1>
+      
+    </div>
+    <div id="contenedor">
+      <ul class="cube">
+        <li class="cara">+</li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+      </ul>
+    </div>
+    <nav id="main-nav">
+      
+        <a class="main-nav-link" href="/">Home</a>
+      
+        <a class="main-nav-link" href="/archives">Archives</a>
+      
+      <a class="main-nav-link st-search-show-outputs">Search</a>
+    </nav>
+  </div>
+</header>
+
+    <div class="outer">
+      <section id="main"><article id="post-Mac系统Eclipse无法导入Python第三方模块的解决办法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <h3 href="/2016/04/12/Mac系统Eclipse无法导入Python第三方模块的解决办法/" class="article-date">
+  <time datetime="2016-04-12T12:02:55.000Z" itemprop="datePublished">2016-04-12</time>
+</h3>
+    
+  </div>
+  <div class="article-inner">
+  <div class="curve-down">
+  <div class="fill-content">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mac系统Eclipse无法导入Python第三方模块的解决办法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <p>使用pip安装了python的第三方库，但eclipse中导入不成功，import xxx时提示“no module named xxx”</p>
+<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><hr>
+<ul>
+<li>eclipse 4.5.0</li>
+<li>python 2.7.11</li>
+<li>pip 8.1.1</li>
+</ul>
+<h2 id="为什么呢"><a href="#为什么呢" class="headerlink" title="为什么呢"></a>为什么呢</h2><hr>
+<p>先来看一下Eclipse中的Python Interpreter。打开Eclipse－偏好设置－PyDev－Interpreters－Python Interpreter<br><img src="20160412-0.png" alt="Python Interpreter"><br>可以看到System Libs中第三方包的目录是/Library/Python/2.7/site-packages<br>再看一下pip的安装目录，打开终端，输入pip －－version<br><img src="20160412-1.png" alt="pip version"><br>可以看到pip的site-package的安装目录是/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages<br>这样就找到原因了，是eclipse中的库路径与pip的下载路径不一致所造成的。我尝试修改了一下eclipse中的System Libs，点击New Folder去找pip的下载路径，然而根本找不到这个目录，而在Finder中是可以看到这个目录的（不知道为什么，是不是因为用户权限不同，可见性不一样？）</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><hr>
+<p>在网上找了一圈，有人说可以把pip的site-package的安装目录下的所有文件拷贝到/Library/Python/2.7/site-packages下，然后写一个脚本，每次安装新的第三方库时都拷贝一次。然而宝宝比较懒，不想每次都执行脚本。<br>想了一下，这个方法可以用软链接来替代。软链接实际上是一段文字，里面包含着它所指向的文件的名字，系统看到软链接后自动跳到对应的文件位置处进行处理，就相当于Windows下的快捷方式。我们可以将/Library/Python/2.7/site-packages这个目录直接链接到第三方库的安装目录。 </p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>打开终端，进入目录/Library/Python/2.7/  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /Library/Python/2.7/</span><br></pre></td></tr></table></figure>
+<p>先做好备份  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sudo mv site-packages site-packages-backup</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">链接两个目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">sudo ln <span class="_">-s</span> /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/ .</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看一下属性</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">localhost:2.7 yuuuu$ ls <span class="_">-l</span> site-packages</span><br><span class="line">lrwxr-xr-x  1 root  wheel  78  4 12 10:26 site-packages -&gt; /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/</span><br></pre></td></tr></table></figure>
+<p>成功链接了两个目录</p>
+<p>好了，再重启一下Eclipse，import下的红线消失了，大功告成！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <div class="article-footer-content">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-问题解决/">Python, 问题解决</a></li></ul>
+
+        <a data-url="http://yoursite.com/2016/04/12/Mac系统Eclipse无法导入Python第三方模块的解决办法/" data-id="cimxds41h000040s615iio68t" class="article-share-link">分享到</a>
+        
+      </div>
+    </footer>
+  </div>
+  </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/31/面试题集合（更新中）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title"> 程序员笔试题集合（更新中）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/04/12/Mac系统Eclipse无法导入Python第三方模块的解决办法/">Mac系统Eclipse无法导入Python第三方模块的解决办法</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/31/面试题集合（更新中）/"> 程序员笔试题集合（更新中）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/16/给定一个字符串，找出字符串中包含｛-a-b-c-｝字符集的最短子串/">给定一个字符串，找出字符串中包含｛&#39;a&#39;,&#39;b&#39;,&#39;c&#39;｝字符集的最短子串</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/16/hahaha/">hahaha</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-问题解决/">Python, 问题解决</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 You<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/sun11/hexo-theme-paperbox" target="_blank">Paperbox</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+  <a href="#search" class="mobile-nav-link st-search-show-outputs">Search</a>
+</nav>
+  <!-- totop start -->
+<div id="totop">
+	<a title="返回顶部"></a>
+</div>
+<!-- totop end -->
+<!-- swiftype search start -->
+
+<!-- swiftype search end -->
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/lrsjng.jquery-qrcode/0.12.0/jquery.qrcode.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
