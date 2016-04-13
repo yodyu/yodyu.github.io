@@ -5,21 +5,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   
-  <title> 程序员笔试题集合（更新中） | 尤大鱼的博客</title>
+  <title> 程序员笔试题集合 | 尤大鱼的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="整理一下最近遇到的笔试题，希望能被offer砸死。
 第一题 int **a[2][4]在32位的机器上占用多少内存？这定义了一个2*4的指针数组，每个指针的大小是4字节，所以总共占用了 2*4*4＝32字节。int* 是指向数组的指针，int**是指向指针的指针，所以都是4字节。
 第二题 #ifdef #if defined #if的区别123456789101112131415161718192">
 <meta property="og:type" content="article">
-<meta property="og:title" content=" 程序员笔试题集合（更新中）">
+<meta property="og:title" content=" 程序员笔试题集合">
 <meta property="og:url" content="http://yoursite.com/2016/03/31/面试题集合（更新中）/index.html">
 <meta property="og:site_name" content="尤大鱼的博客">
 <meta property="og:description" content="整理一下最近遇到的笔试题，希望能被offer砸死。
 第一题 int **a[2][4]在32位的机器上占用多少内存？这定义了一个2*4的指针数组，每个指针的大小是4字节，所以总共占用了 2*4*4＝32字节。int* 是指向数组的指针，int**是指向指针的指针，所以都是4字节。
 第二题 #ifdef #if defined #if的区别123456789101112131415161718192">
-<meta property="og:updated_time" content="2016-03-31T07:31:19.000Z">
+<meta property="og:updated_time" content="2016-04-13T09:30:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" 程序员笔试题集合（更新中）">
+<meta name="twitter:title" content=" 程序员笔试题集合">
 <meta name="twitter:description" content="整理一下最近遇到的笔试题，希望能被offer砸死。
 第一题 int **a[2][4]在32位的机器上占用多少内存？这定义了一个2*4的指针数组，每个指针的大小是4字节，所以总共占用了 2*4*4＝32字节。int* 是指向数组的指针，int**是指向指针的指针，所以都是4字节。
 第二题 #ifdef #if defined #if的区别123456789101112131415161718192">
@@ -93,7 +93,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-       程序员笔试题集合（更新中）
+       程序员笔试题集合
     </h1>
   
 
@@ -149,7 +149,12 @@
 <li>主机序：不同的CPU有不同的字节序类型，即整数在内存中保存的顺序，一般有两种，就是之前说的大端模式与小端模式。</li>
 <li>网络序：TCP/IP中定义的数据表示格式，保证数据在不同CPU类型的主机之间传输时能被正确解释。网络字节序采用大端模式。在数据传输时会进行主机序与网络序之间的转换，保证数据的正确性。</li>
 </ul>
-<h3 id="第四题-JavaScript-变量作用域"><a href="#第四题-JavaScript-变量作用域" class="headerlink" title="第四题 JavaScript 变量作用域"></a>第四题 JavaScript 变量作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">"global"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(s);</span><br><span class="line">	<span class="keyword">var</span> s = <span class="string">"local"</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(s);</span><br><span class="line">&#125;</span><br><span class="line">f(); </span><br><span class="line"><span class="string">``</span><span class="string">`   </span><br><span class="line">运行结果为： </span><br><span class="line"> </span><br><span class="line">    undefined  </span><br><span class="line">    local</span><br><span class="line"></span><br><span class="line">Javascript中没有块级作用域，只有函数作用域，var声明的变量都是局部变量，变量在声明它的函数体内是有定义的。第一句的console.log(s)在s未声明就使用了，这时s是未定义的，外面定义的变量并不能作用到函数内部。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 第五题 sizeof strlen  </span><br><span class="line"></span><br><span class="line">`</span><span class="string">``</span>C</span><br><span class="line">int main()&#123;</span><br><span class="line">    char str[<span class="number">10</span>]=<span class="string">"Hel\0lo\0"</span>;</span><br><span class="line">    int len1 = strlen(str);</span><br><span class="line">    int len2 = sizeof(str);</span><br><span class="line">    printf(<span class="string">"%d %d"</span>,len1,len2);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第四题-JavaScript-变量作用域"><a href="#第四题-JavaScript-变量作用域" class="headerlink" title="第四题 JavaScript 变量作用域"></a>第四题 JavaScript 变量作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">"global"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(s);</span><br><span class="line">	<span class="keyword">var</span> s = <span class="string">"local"</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(s);</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+<p>运行结果为： </p>
+<pre><code>undefined  
+local
+</code></pre><p>Javascript中没有块级作用域，只有函数作用域，var声明的变量都是局部变量，变量在声明它的函数体内是有定义的。第一句的console.log(s)在s未声明就使用了，这时s是未定义的，外面定义的变量并不能作用到函数内部。</p>
+<h3 id="第五题-sizeof-strlen"><a href="#第五题-sizeof-strlen" class="headerlink" title="第五题 sizeof strlen"></a>第五题 sizeof strlen</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">10</span>]=<span class="string">"Hel\0lo\0"</span>;</span><br><span class="line">    <span class="keyword">int</span> len1 = <span class="built_in">strlen</span>(str);</span><br><span class="line">    <span class="keyword">int</span> len2 = <span class="keyword">sizeof</span>(str);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d"</span>,len1,len2);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果为：3 10 </p>
 <ul>
 <li><strong>sizeof</strong> 是运算符，其值在编译时就计算好了，获得能容纳实现所建立的最大对象的<strong>字节</strong>大小。  </li>
@@ -163,7 +168,7 @@
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
 
-        <a data-url="http://yoursite.com/2016/03/31/面试题集合（更新中）/" data-id="cimxeslag0004fhs6mkt9zhi2" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2016/03/31/面试题集合（更新中）/" data-id="cimynpylr0000h4s6lgff86gr" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -175,7 +180,7 @@
 <nav id="article-nav">
   
     <a href="/2016/04/12/Mac系统Eclipse无法导入Python第三方模块的解决办法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">
         
           Mac系统Eclipse无法导入Python第三方模块的解决办法
@@ -185,7 +190,7 @@
   
   
     <a href="/2016/03/16/给定一个字符串，找出字符串中包含｛-a-b-c-｝字符集的最短子串/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">给定一个字符串，找出字符串中包含｛&#39;a&#39;,&#39;b&#39;,&#39;c&#39;｝字符集的最短子串</div>
     </a>
   
@@ -201,7 +206,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
+    <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
         
@@ -210,7 +215,7 @@
           </li>
         
           <li>
-            <a href="/2016/03/31/面试题集合（更新中）/"> 程序员笔试题集合（更新中）</a>
+            <a href="/2016/03/31/面试题集合（更新中）/"> 程序员笔试题集合</a>
           </li>
         
           <li>
@@ -228,7 +233,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题解决/">问题解决</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
     </div>
@@ -237,7 +242,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li></ul>
     </div>
@@ -269,7 +274,7 @@
 </nav>
   <!-- totop start -->
 <div id="totop">
-	<a title="To Top"></a>
+	<a title="返回顶部"></a>
 </div>
 <!-- totop end -->
 <!-- swiftype search start -->
